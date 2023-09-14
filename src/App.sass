@@ -1,0 +1,64 @@
+*
+	padding: 0
+	margin: 0
+	box-sizing: border-box
+button
+	background: none
+	border: none
+a:focus,
+a:active
+	outline: none
+
+input
+	background: none
+button
+	cursor: pointer
+a
+	text-decoration: none
+
+html[data-theme="light"]
+	--background-color: #fff
+	--color: #121212
+	--accent: #9B4B4B
+	--secondary: #FCFCFC
+	--gray: #575757
+
+html[data-theme="dark"]
+	--background-color: #121212
+	--color: #fff
+	--accent: #AB8956
+	--secondary: #1A1818
+	--gray: #DEDEDE
+
+.App
+	background-color: var(--background-color)
+	color: var(--color)
+	font-family: 'Cormorant SC', serif
+	font-family: 'Inter', sans-serif
+	transition: all 0.3s ease-in
+.container
+	width: 1240px
+	margin: 0 auto
+.gallery
+	display: grid
+	grid-template-columns: repeat(3, 392px)
+	grid-template-rows: repeat(2, 260px)
+	gap: 32px
+	margin-bottom: 100px
+.hr
+	height: 1px
+	background: #9c9c9c
+	margin-bottom: 40px
+
+@media (max-width: 1440px)
+	.container
+		width: 750px
+	.gallery
+		grid-template-columns: repeat(2, 352px)
+		grid-template-rows: repeat(3, 220px)
+@media (max-width: 768px)
+	.container
+		width: 320px
+	.gallery
+		grid-template-columns: repeat(1, 280px)
+		grid-template-rows: repeat(6, 185px)
