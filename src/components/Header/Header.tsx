@@ -4,6 +4,7 @@ import classNames from "classnames";
 import styles from "./Header.module.sass";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { selectTheme, setTheme } from "../../store/theme/reducer";
+import { useResize } from "../../hooks/useResize";
 
 interface IHeaderProps {
   isOpened: boolean;
@@ -14,7 +15,7 @@ const Header = ({ setIsOpened, isOpened }: IHeaderProps) => {
   const dispatch = useAppDispatch();
   const theme = useAppSelector(selectTheme);
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const width = useResize();
   const [showBurger, setShowBurger] = useState(false);
 
   const handleChangeTheme = () => {
@@ -28,27 +29,19 @@ const Header = ({ setIsOpened, isOpened }: IHeaderProps) => {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <div className={styles.container}>
       <Link to="/">
         <img
           src={
             theme === "dark"
-              ? "./assets/img/logo.svg"
-              : "./assets/img/light_logo.svg"
+              ? "../assets/img/logo.svg"
+              : "../assets/img/light_logo.svg"
           }
           alt="logo"
         />
       </Link>
-      {windowWidth > 1440 ? (
+      {width > 1440 ? (
         <div className={styles.container_right}>
           <div className={styles.container_right_links}>
             <Link to="/">LOG IN</Link>
@@ -62,8 +55,8 @@ const Header = ({ setIsOpened, isOpened }: IHeaderProps) => {
             <img
               src={
                 theme === "dark"
-                  ? "./assets/img/light_icon.svg"
-                  : "./assets/img/dark_icon.svg"
+                  ? "../assets/img/light_icon.svg"
+                  : "../assets/img/dark_icon.svg"
               }
               alt="theme"
             />

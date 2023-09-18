@@ -12,13 +12,13 @@ const Footer = () => {
       </div>
       <div className={styles.container_socials}>
         <a href="#">
-          <img src="./assets/img/facebook_icon.svg" alt="facebook" />
+          <img src="../assets/img/facebook_icon.svg" alt="facebook" />
         </a>
         <a href="#">
-          <img src="./assets/img/vk_icon.svg" alt="vk" />
+          <img src="../assets/img/vk_icon.svg" alt="vk" />
         </a>
         <a href="#">
-          <img src="./assets/img/instagram_icon.svg" alt="instagram" />
+          <img src="../assets/img/instagram_icon.svg" alt="instagram" />
         </a>
       </div>
     </div>

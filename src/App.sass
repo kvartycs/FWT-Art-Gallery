@@ -15,6 +15,7 @@ button
 	cursor: pointer
 a
 	text-decoration: none
+	color: var(--color)
 
 html[data-theme="light"]
 	--background-color: #fff
@@ -22,6 +23,7 @@ html[data-theme="light"]
 	--accent: #9B4B4B
 	--secondary: #FCFCFC
 	--gray: #575757
+	--genre: rgba(18, 18, 18, 0.05)
 
 html[data-theme="dark"]
 	--background-color: #121212
@@ -29,6 +31,7 @@ html[data-theme="dark"]
 	--accent: #AB8956
 	--secondary: #1A1818
 	--gray: #DEDEDE
+	--genre: rgba(205, 205, 205, 0.05)
 
 .App
 	background-color: var(--background-color)
@@ -50,13 +53,115 @@ html[data-theme="dark"]
 	background: #9c9c9c
 	margin-bottom: 40px
 
+.artist
+	&_gallery
+		display: grid
+		grid-template-columns: repeat(3, 392px)
+		gap: 32px
+		margin-bottom: 100px
+		&_title
+			display: block
+			color: var(--accent)
+			font-size: 60px
+			font-family: 'Cormorant SC'
+			margin-bottom: 60px
+	&_back
+		display: flex
+		align-items: center
+		gap: 12px
+		margin-bottom: 20px
+		text-decoration: underline
+	&_container
+		position: relative
+		display: flex
+		justify-content: flex-end
+
+		&_avatar
+			position: relative
+			margin-bottom: 160px
+		&_description
+			width: 604px
+			padding-bottom: 60px
+			position: absolute
+			top: 60px
+			left: -330px
+			background: var(--background-color)
+			&_genre
+				border-radius: 30px
+				border: 1px solid #fff
+				padding: 8px 16px
+				background: var(--genre)
+				&_wrapper
+					margin-top: 32px
+					display: flex
+					gap: 10px
+					flex-wrap: wrap
+					margin-left: 80px
+			span
+				display: block
+				border-left: 2px solid var(--accent)
+				color: var(--accent)
+				font-size: 60px
+				font-weight: 500
+				font-family: "Cormorant SC"
+				padding-left: 80px
+				margin-bottom: 52px
+			&_years
+				font-family: "Cormorant SC"
+				color: #9c9c9c
+				font-weight: 500
+				margin-top: 60px
+				margin-left: 80px
+				margin-bottom: 32px
+			&_text
+				margin: 0px 80px
+				font-weight: 300
+				line-height: 140%
+
 @media (max-width: 1440px)
+	.artist
+		&_gallery
+			grid-template-columns: repeat(2, 352px)
+		&_container
+			&_description
+				left: 0px
+				top: 80%
+				bottom: 0px
+				padding-bottom: 0px
+				width: 560px
+				&_genre
+					&_wrapper
+						margin-left: 0px
+						margin-bottom: 90px
+				&_years
+					margin-top: 20px
+					margin-left: 20px
+					margin-bottom: 16px
+				span
+					font-size: 48px
+					margin-bottom: 20px
+					padding-left: 20px
+			&_avatar
+				margin-bottom: 0px
+				&_img
+					width: 100vw
 	.container
 		width: 750px
 	.gallery
 		grid-template-columns: repeat(2, 352px)
 		grid-template-rows: repeat(3, 220px)
 @media (max-width: 768px)
+	.artist
+		&_container
+			&_description
+				width: 300px
+				top: 70%
+
+				span
+					font-size: 32px
+					border: 0px
+		&_gallery
+			grid-template-columns: repeat(1, 280px)
 	.container
 		width: 320px
 	.gallery

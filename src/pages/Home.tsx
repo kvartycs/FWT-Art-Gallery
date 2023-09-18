@@ -10,12 +10,13 @@ const Home = () => {
     dispatch(fetchArtists());
   }, []);
   return (
-    <div className="gallery">
+    <div className="gallery container">
       {status === "success" &&
         artists
           .slice(0, 6)
           .map((artist) => (
             <Card
+              id={artist._id}
               name={artist.name}
               yearsOfLife={artist.yearsOfLife}
               mainPainting={artist.mainPainting}

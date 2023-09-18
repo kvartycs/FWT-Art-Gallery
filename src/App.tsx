@@ -5,7 +5,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Drawer } from "./components/Drawer";
 
-import { Home } from "./pages";
+import { Artist, Home } from "./pages";
 
 function App() {
   const [isOpened, setIsOpened] = useState(false);
@@ -15,10 +15,11 @@ function App() {
       <div className="container">
         <Drawer isOpened={isOpened} />
         <Header isOpened={isOpened} setIsOpened={setIsOpened} />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-        </Routes>
       </div>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/artist/:id" element={<Artist />}></Route>
+      </Routes>
       <div className="hr" />
       <div className="container">
         <Footer />
