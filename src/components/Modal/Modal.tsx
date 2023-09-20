@@ -1,4 +1,5 @@
 import { useState } from "react";
+import validator from "validator";
 import { Dialog } from "@headlessui/react";
 import styles from "./Modal.module.sass";
 import { useResize } from "../../hooks/useResize";
@@ -18,12 +19,17 @@ const Modal = ({ isOpen, setIsOpen, isRegister }: IModalProps) => {
   const [auth, setAuth] = useState({ username: "", password: "" });
 
   const handleRegisterForm = async () => {
-    const fingerprint = await getFingerprint();
-    const data = await dispatch(
-      fetchRegister({ ...auth, fingerprint }),
-    ).unwrap();
-    if (data.accessToken) {
-      document.cookie = `accessToken=${data.accessToken}`;
+    if (validator.isEmail(auth.username)) {
+      const fingerprint = await getFingerprint();
+      const data = await dispatch(
+        fetchRegister({ ...auth, fingerprint }),
+      ).unwrap();
+      if (data.accessToken) {
+        document.cookie = `accessToken=${data.accessToken}`;
+      }
+    } else {
+      // TODO: Integrate into toast
+      alert("Введен неверный email");
     }
 
     // eslint-disable-next-line no-restricted-globals
