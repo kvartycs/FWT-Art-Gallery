@@ -36,13 +36,19 @@ const Modal = ({ isOpen, setIsOpen, isRegister }: IModalProps) => {
     location.reload();
   };
   const handleLoginForm = async () => {
-    const fingerprint = await getFingerprint();
-    const data = await dispatch(fetchAuth({ ...auth, fingerprint })).unwrap();
-    console.log(data);
+    if (validator.isEmail(auth.username)) {
+      const fingerprint = await getFingerprint();
+      const data = await dispatch(fetchAuth({ ...auth, fingerprint })).unwrap();
+      console.log(data);
 
-    if (data.accessToken) {
-      document.cookie = `accessToken=${data.accessToken}`;
+      if (data.accessToken) {
+        document.cookie = `accessToken=${data.accessToken}`;
+      }
+    } else {
+      // TODO: Integrate into toast
+      alert("Введен неверный email");
     }
+
     // eslint-disable-next-line no-restricted-globals
     location.reload();
   };
