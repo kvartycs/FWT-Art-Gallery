@@ -39,7 +39,9 @@ const Artist = () => {
                     {data?.yearsOfLife}
                   </p>
                   <span>{data?.name}</span>
-                  <Accordeon description={data!.description} />
+                  <Accordeon
+                    description={data !== null ? data.description : ""}
+                  />
                   <div className="artist_container_description_genre_wrapper">
                     {data?.genres.map((genre) => (
                       <p

@@ -4,9 +4,10 @@ import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import type { TypedUseSelectorHook } from "react-redux";
 import artists from "./artists/reducer";
 import theme from "./theme/reducer";
+import auth from "./auth/reducer";
 
 export const store = configureStore({
-  reducer: { artists, theme },
+  reducer: { artists, theme, auth },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),
 });

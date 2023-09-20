@@ -1,0 +1,98 @@
+.wrapper
+	z-index: 50
+	position: relative
+	overflow: hidden
+.container
+	position: fixed
+	margin: 0 auto
+	margin-top: 150px
+
+	overflow: hidden
+	inset: 0
+
+	height: 700px
+	width: 1028px
+
+	background: var(--modal)
+	color: var(--color)
+
+	overscroll-behavior: contain
+	display: flex
+	&_image
+		width: 498px
+	&_form
+		width: 530px
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-direction: column
+		&_close
+			position: absolute
+			top: 32px
+			right: 32px
+		&_submit
+			color: #fff
+			background: var(--submit)
+			border-radius: 30px
+			width: 200px
+			height: 47px
+			&[data-theme="light"]
+				border: 1px solid #575757
+
+		&_input
+			width: 340px
+			height: 46px
+			padding: 12px 16px
+			border-radius: 4px
+			background: var(--input)
+			color: var(--color)
+
+			&:first-child
+				margin-bottom: 40px
+			&:last-child
+				margin-bottom: 60px
+			&_title
+				margin-bottom: 8px
+				font-size: 12px
+				font-family: "Inter"
+				font-weight: 700
+		&_title
+			font-size: 48px
+			font-weight: 500
+			margin-bottom: 20px
+		&_description
+			font-family: 'Inter'
+			font-weight: 500
+			margin-bottom: 60px
+			span
+				text-decoration: underline
+
+.bg
+	position: fixed
+	inset: 0
+	background-color: rgba(3, 3, 3, 0.60)
+@media (max-width: 1440px)
+	.container
+		margin-top: 0px
+		justify-content: center
+		align-items: center
+		width: 100vw
+		height: 100vh
+		&_form
+			&_title
+				font-size: 60px
+				margin-bottom: 40px
+@media (max-width: 768px)
+	.container
+		&_form
+			&_close
+				top: 20px
+				right: 20px
+			&_description
+				font-size: 12px
+			&_title
+				font-size: 32px
+			&_input
+				width: 80vw
+			&_submit
+				margin-bottom: 60px

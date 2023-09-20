@@ -2,15 +2,18 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { IArtist, IArtistById, IArtistsState } from "./types";
 
-export const fetchArtists = createAsyncThunk("fetchArtists", async () => {
-  const { data } = await axios.get<IArtist[]>(
-    "https://internship-front.framework.team/artists/static",
-  );
-  return data as IArtist[];
-});
+export const fetchArtists = createAsyncThunk(
+  "artist/fetchArtists",
+  async () => {
+    const { data } = await axios.get<IArtist[]>(
+      "https://internship-front.framework.team/artists/static",
+    );
+    return data as IArtist[];
+  },
+);
 
 export const fetchArtistById = createAsyncThunk(
-  "fetchArtistById",
+  "artist/fetchArtistById",
   async (id: string | undefined) => {
     const { data } = await axios.get<IArtistById>(
       `https://internship-front.framework.team/artists/static/${id}`,
