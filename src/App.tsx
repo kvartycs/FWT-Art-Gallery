@@ -20,10 +20,8 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/artist/:id" element={<Artist />}></Route>
       </Routes>
-      <div className="hr" />
-      <div className="container">
-        <Footer />
-      </div>
+
+      <Footer />
     </div>
   );
 }
