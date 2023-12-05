@@ -1,0 +1,24 @@
+.container
+	display: flex
+	justify-content: space-between
+	align-items: center
+	padding-bottom: 32px
+	&_text
+		p
+			margin-bottom: 20px
+			font-weight: 500
+			line-height: 140%
+			color: var(--gray)
+		span
+			font-weight: 300
+			line-height: 140%
+			color: #9C9C9C
+	&_socials
+		display: flex
+		align-items: center
+		gap: 20px
+@media (max-width: 768px)
+
+	.container
+		flex-wrap: wrap
+		gap: 20px
